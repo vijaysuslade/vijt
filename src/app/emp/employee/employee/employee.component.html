@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="card mt-5 container card-option">
+    <div class="card-body ">
+      <div class="row ">
+        <div class="col-md-6 input-box">
+          <input class="form-control inputbox" [disabled]="disabledinput" type="text" placeholder="Searchbyname..."
+            aria-label="Search" [(ngModel)]="employeeName" (input)="searchByName()">
+        </div>
+      </div>
+      <div class="check-box mt-3">
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" (click)="getTwoYearsExperianceEmployee()" name="optradio">Find
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" (click)="getDistinct()" name="optradio">Distinct
+          </label>
+        </div>
+        <div class="form-check-inline disabled">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" (click)="removeAll()" name="optradio">RemoveAll
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-striped  mt-5 mb-5 empdetails" *ngIf="showEmpDetails">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name<span><img src="assets/icon/up.svg" (click)="sortNameAsecnding()"><img src="assets/icon/down.svg"
+              (click)="sortNameDescending()"></span></th>
+        <th>Department</th>
+        <th>JoiningDate<span><img src="assets/icon/up.svg" (click)="sortjoinDateasecnding()"><img
+              src="assets/icon/down.svg" (click)="sortJoinDateDescending()"></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of data">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.department}}</td>
+        <td>{{employee.joining_date | date}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered mt-5 table-striped distinctdept" *ngIf="showdistinctDept">
+    <thead>
+      <tr>
+        <th>DepratmentName</th>
+        <th>TotalEmployee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dept of distinctDeptMap| keyvalue">
+        <td>{{dept.key}}</td>
+        <td>{{dept.value}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

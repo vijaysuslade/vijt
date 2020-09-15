@@ -1,0 +1,26 @@
+.empdetailscontainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+.input-box{
+    margin-left: 25%;
+}
+.check-box{
+    margin-left: 34%;  
+}
+.distinctdept{
+
+}
+.cust-icon{
+    display: flex;
+    flex-direction: column;  
+}
+img{
+height: 15px; 
+}
+.card-option{
+    width: 75%; 
+}
